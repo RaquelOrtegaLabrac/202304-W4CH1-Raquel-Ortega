@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { getMockData } from "../data/mock.data";
 import { GentlemanInfo } from "../types/type";
 
@@ -18,9 +19,9 @@ export function Gentleman() {
     <li key={id} className="gentleman">
       <div className="gentleman__avatar-container">
         <img
-          src="{picture}"
-          alt="{alternativeText}"
           className="gentleman__avatar"
+          src={picture}
+          alt={alternativeText}
         />
         <span className="gentleman__initial">
           {name.charAt(0).toUpperCase()}
@@ -28,7 +29,7 @@ export function Gentleman() {
       </div>
       <div className="gentleman__data-container">
         <h2 className="gentleman__name">{name}</h2>
-        <ul className="gentleman__data">
+        <ul className="gentleman__data-list">
           <li className="gentleman__data">
             <span className="gentleman__data-label">Profession:</span>
             {profession}
@@ -42,15 +43,18 @@ export function Gentleman() {
         </ul>
       </div>
       <i className="icon gentleman__icon fas fa-check"></i>
-      <i className="icon gentleman__icon gentleman__icon--delete fas fa-times"
-      onClick={() => {
-        setGentlemen(gentlemen.filter((item) => item.id !==id))
-      }}></i>
+      <i
+        className="icon gentleman__icon gentleman__icon--delete fas fa-times"
+        onClick={() => {
+          setGentlemen(gentlemen.filter((item) => item.id !== id));
+        }}
+      ></i>
     </li>
   );
 
   return (
-    <main className="main"></main>
-    <ul className="gentlemen">{gentlemen.map(gentleman)}</ul>
-  )
+    <main className="main">
+      <ul className="gentlemen">{gentlemen.map(gentleman)}</ul>
+    </main>
+  );
 }

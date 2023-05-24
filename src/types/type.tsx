@@ -1,5 +1,5 @@
 export type GentlemanInfo = {
-  id: string;
+  id: number;
   name: string;
   status: string;
   profession: string;
